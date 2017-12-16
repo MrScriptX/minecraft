@@ -22,7 +22,7 @@ std::string get_SourceFile(const std::string& sourceFile)
 {
 	std::string source;
 	std::stringstream stringStream;
-	std::ifstream file("Data/Shaders/" + sourceFile + ".glsl");
+	std::ifstream file("Data\\Shaders\\" + sourceFile + ".glsl");
 
 	if (!file)
 	{

@@ -54,6 +54,12 @@
     <ClCompile Include="Shader_Loader.cpp">
       <Filter>Fichiers sources\Shader</Filter>
     </ClCompile>
+    <ClCompile Include="Simple_Shader.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Basic_Texture.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -83,5 +89,19 @@
     <ClInclude Include="Shader_Program.h">
       <Filter>Fichiers d%27en-tête\Shader</Filter>
     </ClInclude>
+    <ClInclude Include="Simple_Shader.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Basic_Texture.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\Shaders\Simple_Vertex.glsl">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="Data\Shaders\Simple_Fragment.glsl">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
   </ItemGroup>
 </Project>

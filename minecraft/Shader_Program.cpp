@@ -23,4 +23,9 @@ void Shader_Program::unbind()
 	glUseProgram(0);
 }
 
+void Shader_Program::bindAttribute(GLuint location, const GLchar * name)
+{
+	glBindAttribLocation(m_programID, location, name);
+}
+
 
