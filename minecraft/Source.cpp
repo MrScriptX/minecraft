@@ -1,10 +1,10 @@
-#include "Application.h"
+#include "OpenGL_Context.h"
 
 
 int main()
 {
-	Application app;
-	app.gameLoop();
+	OpenGL_Context window;
+	window.run();
 
 	return 0;
 }
