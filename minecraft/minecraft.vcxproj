@@ -187,6 +187,8 @@
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="OpenGL_Context.cpp" />
     <ClCompile Include="Playing_State.cpp" />
+    <ClCompile Include="Shader_Loader.cpp" />
+    <ClCompile Include="Shader_Program.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -197,6 +199,8 @@
     <ClInclude Include="OpenGL_Context.h" />
     <ClInclude Include="Playing_State.h" />
     <ClInclude Include="Settings.h" />
+    <ClInclude Include="Shader_Loader.h" />
+    <ClInclude Include="Shader_Program.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

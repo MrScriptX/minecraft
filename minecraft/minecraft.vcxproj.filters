@@ -19,6 +19,12 @@
     <Filter Include="Fichiers d%27en-tête\State">
       <UniqueIdentifier>{c34b6661-50eb-4fcf-92a4-b9eeb98f06aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Shader">
+      <UniqueIdentifier>{cda1253a-7cbb-44c3-88a5-db89003959ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Shader">
+      <UniqueIdentifier>{bffa1192-0c57-470a-bd38-f8b55e506df4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -42,6 +48,12 @@
     <ClCompile Include="Model.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Shader_Program.cpp">
+      <Filter>Fichiers sources\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader_Loader.cpp">
+      <Filter>Fichiers sources\Shader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -64,6 +76,12 @@
     </ClInclude>
     <ClInclude Include="Model.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader_Loader.h">
+      <Filter>Fichiers d%27en-tête\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader_Program.h">
+      <Filter>Fichiers d%27en-tête\Shader</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
