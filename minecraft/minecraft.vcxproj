@@ -183,13 +183,17 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Game_States.cpp" />
     <ClCompile Include="OpenGL_Context.cpp" />
+    <ClCompile Include="Playing_State.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Game_States.h" />
     <ClInclude Include="OpenGL_Context.h" />
+    <ClInclude Include="Playing_State.h" />
     <ClInclude Include="Settings.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

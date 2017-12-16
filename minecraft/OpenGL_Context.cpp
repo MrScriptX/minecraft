@@ -2,7 +2,7 @@
 
 
 
-OpenGL_Context::OpenGL_Context()
+OpenGL_Context::OpenGL_Context() : m_window()
 {
 	m_settings.depthBits         = 24;
 	m_settings.majorVersion      = 4;
@@ -38,12 +38,12 @@ void OpenGL_Context::clear()
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 }
 
-void OpenGL_Context::run()
+bool OpenGL_Context::get_IsOpen()
 {
-	while (m_window.window->isOpen())
-	{
-		clear();
-		m_window.window->display();
-		close();
-	}
+	return m_window.window->isOpen();
+}
+
+void OpenGL_Context::display()
+{
+	m_window.window->display();
 }

@@ -14,7 +14,7 @@ typedef struct display
 
 	std::unique_ptr<sf::RenderWindow> window;
 
-} display;
+} Display;
 
 class OpenGL_Context
 {
@@ -22,14 +22,15 @@ public:
 	OpenGL_Context();
 	~OpenGL_Context();
 
-	void run();
-
-private:
+	void display();
 	void close();
 	void clear();
 
+	bool get_IsOpen();
+
+private:
 	sf::ContextSettings m_settings;
-	display m_window;
+	Display m_window;
 
 };
 
