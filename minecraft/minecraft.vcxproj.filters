@@ -25,6 +25,12 @@
     <Filter Include="Fichiers d%27en-tête\Shader">
       <UniqueIdentifier>{bffa1192-0c57-470a-bd38-f8b55e506df4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Renderer">
+      <UniqueIdentifier>{4fb5ac9c-6a15-47c9-be96-9ae5a7efd83c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Renderer">
+      <UniqueIdentifier>{7e50c25b-f2cf-4945-8019-25cfa9235567}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -54,10 +60,22 @@
     <ClCompile Include="Shader_Loader.cpp">
       <Filter>Fichiers sources\Shader</Filter>
     </ClCompile>
-    <ClCompile Include="Simple_Shader.cpp">
+    <ClCompile Include="Basic_Texture.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Basic_Texture.cpp">
+    <ClCompile Include="Simple_Shader.cpp">
+      <Filter>Fichiers sources\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Quad.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Render_Master.cpp">
+      <Filter>Fichiers sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Render_Simple.cpp">
+      <Filter>Fichiers sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -89,10 +107,28 @@
     <ClInclude Include="Shader_Program.h">
       <Filter>Fichiers d%27en-tête\Shader</Filter>
     </ClInclude>
-    <ClInclude Include="Simple_Shader.h">
+    <ClInclude Include="Basic_Texture.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Basic_Texture.h">
+    <ClInclude Include="Simple_Shader.h">
+      <Filter>Fichiers d%27en-tête\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Glm_Common.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Quad.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Render_Simple.h">
+      <Filter>Fichiers d%27en-tête\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Render_Master.h">
+      <Filter>Fichiers d%27en-tête\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

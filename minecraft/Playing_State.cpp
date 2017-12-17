@@ -1,30 +1,15 @@
 #include "Playing_State.h"
 
-//regroup vect in a struct call object
-std::vector<GLfloat> vertexPosition =
-{	0.5,	0.5,
-	-0.5,	0.5,
-	-0.5,	-0.5,
-	0.5,	-0.5,
-};
+#include <SFML\System\Clock.hpp>
 
-std::vector<GLfloat> textureCoord =
-{
-	1.0, 1.0,
-	0.0, 1.0,
-	0.0, 0.0,
-	1.0, 0.0,
-};
 
-std::vector<GLuint> indices =
-{
-	0, 1, 2,
-	2, 3, 0
-};
 
-Playing_State::Playing_State(Application* app): Game_State(app), m_model(vertexPosition, textureCoord, indices)
+Playing_State::Playing_State(Application* app): Game_State(app)
 {
 	m_texture.load("grass");
+	m_texture.bind();
+
+	m_quad.position.z = -8;
 }
 
 
@@ -32,23 +17,16 @@ Playing_State::~Playing_State()
 {
 }
 
-void Playing_State::input()
+void Playing_State::input(Camera& camera)
 {
 }
 
-void Playing_State::update()
+void Playing_State::update(Camera& camera, float deltaTime)
 {
+	camera.input(deltaTime);
 }
 
-void Playing_State::draw()
+void Playing_State::draw(Render_Master& renderer)
 {
-	m_shader.bind();
-	m_model.bind();
-	m_texture.bind();
-	
-	glDrawElements(GL_TRIANGLES, m_model.get_indicesCount(), GL_UNSIGNED_INT, nullptr);
-
-	m_texture.unbind();
-	m_model.unbind();
-	m_shader.unbind();
+	renderer.draw(m_quad);
 }

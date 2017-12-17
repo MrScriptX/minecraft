@@ -10,8 +10,8 @@ public:
 	Model(const std::vector<GLfloat> &vertexPosition, const std::vector<GLfloat> &textureCoord, const std::vector<GLuint> &indices);
 	~Model();
 
-	void bind();
-	void unbind();
+	void bind() const;
+	void unbind() const;
 
 	GLuint get_indicesCount() const;
 

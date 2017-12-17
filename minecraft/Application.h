@@ -2,9 +2,10 @@
 
 
 #include <stack>
-#include "OpenGL_Context.h"
 #include "Game_States.h"
 #include "Playing_State.h"
+#include "Render_Master.h"
+#include "Camera.h"
 
 
 class Application
@@ -18,7 +19,8 @@ public:
 
 private:
 	std::stack<std::unique_ptr<Game_State>> m_states;
-	OpenGL_Context m_display;
+	Render_Master m_renderer;
+	Camera m_camera;
 
 };
 

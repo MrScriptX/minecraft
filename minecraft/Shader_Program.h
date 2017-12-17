@@ -2,6 +2,7 @@
 
 
 #include <GL\glew.h>
+#include "Glm_Common.h"
 #include "Shader_Loader.h"
 
 
@@ -15,8 +16,12 @@ public:
 	void unbind();
 
 protected:
-	void bindAttribute(GLuint location, const GLchar* name);
-	virtual void bindAttributes() = 0;
+	virtual void get_UniformLocations() = 0;
+
+	GLuint get_ID() const;
+	void loadFloat(GLuint location, float value);
+	void loadVector2(GLuint location, const vector2& vector);
+	void loadMatrix4(GLuint location, const matrix4& matrix);
 
 private:
 	GLuint m_programID;

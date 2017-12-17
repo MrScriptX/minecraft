@@ -7,7 +7,7 @@ Model::Model(const std::vector<GLfloat> &vertexPosition, const std::vector<GLflo
 	glGenBuffers(1, &m_vaoID);
 	glBindBuffer(GL_ARRAY_BUFFER, m_vaoID);
 	
-	addVBO(2, vertexPosition);
+	addVBO(3, vertexPosition);
 	addVBO(2, textureCoord);
 	addEBO(indices);
 
@@ -23,12 +23,12 @@ Model::~Model()
 	glDeleteBuffers(m_buffers.size(), m_buffers.data());
 }
 
-void Model::bind()
+void Model::bind() const
 {
 	glBindVertexArray(m_vaoID);
 }
 
-void Model::unbind()
+void Model::unbind() const
 {
 	glBindVertexArray(0);
 }

@@ -2,23 +2,26 @@
 
 
 
-Application::Application(): m_display()
+Application::Application(): m_renderer()
 {
 	pushGameState(std::make_unique<Playing_State>(this));
 }
 
 void Application::gameLoop()
 {
-	while (m_display.get_IsOpen())
+	sf::Clock clock;
+
+	while (m_renderer.isOpen())
 	{
-		m_display.clear();
+		float deltaTime = clock.restart().asSeconds();
 
-		m_states.top()->input();
-		m_states.top()->update();
-		m_states.top()->draw();
+		m_renderer.clear();
 
-		m_display.display();
-		m_display.close();
+		m_states.top()->input(m_camera);
+		m_states.top()->update(m_camera, deltaTime);
+		m_states.top()->draw(m_renderer);
+
+		m_renderer.update(m_camera);//check for close in update
 	}
 }
 
