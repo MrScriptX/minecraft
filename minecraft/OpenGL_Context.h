@@ -1,36 +1,20 @@
-#pragma once
+#ifndef DISPLAY_H_INCLUDED
+#define DISPLAY_H_INCLUDED
 
- 
-#include <memory>
-#include <gl\glew.h>
-#include <SFML\OpenGL.hpp>
-#include <SFML\Graphics.hpp>
-
-
-typedef struct display
+namespace Display
 {
-	constexpr static int width = 1280;
-	constexpr static int height = 720;
+    constexpr int WIDTH = 1280;
+    constexpr int HEIGHT = 720;
 
-	std::unique_ptr<sf::RenderWindow> window;
+    void init();
+    void close();
 
-} Display;
+    void clear();
+    void update();
 
-class OpenGL_Context
-{
-public:
-	OpenGL_Context();
-	~OpenGL_Context();
+    void checkForClose();
 
-	void display();
-	void close();
-	void clear();
+    bool isOpen();
+}
 
-	bool get_IsOpen();
-
-private:
-	sf::ContextSettings m_settings;
-	Display m_window;
-
-};
-
+#endif // DISPLAY_H_INCLUDED

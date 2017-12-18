@@ -1,6 +1,10 @@
 #include "Game_States.h"
 
-Game_State::Game_State(Application * app): m_app(app)
+namespace State
 {
+    Game_State::Game_State(Application& application)
+    :   m_application   (&application)
+    {
 
+    }
 }

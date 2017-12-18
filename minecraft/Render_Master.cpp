@@ -1,34 +1,24 @@
 #include "Render_Master.h"
 
+#include "OpenGL_Context.h"
 
-
-Render_Master::Render_Master(): m_display()
+namespace Renderer
 {
-}
+    void Master::clear()
+    {
+        Display::clear();
+    }
 
+    void Master::update(const Entity& camera)
+    {
+        m_simpleRenderer.update(camera);
 
-Render_Master::~Render_Master()
-{
-}
+        Display::update();
+    }
 
-void Render_Master::clear()
-{
-	m_display.clear();
-}
+    void Master::draw(const Quad& model)
+    {
+        m_simpleRenderer.draw(model);
+    }
 
-void Render_Master::update(const Camera& camera)
-{
-	m_SimpleRenderer.update(camera);
-	m_display.display();
-	m_display.close();
-}
-
-void Render_Master::draw(const Quad & model)
-{
-	m_SimpleRenderer.draw(model);
-}
-
-bool Render_Master::isOpen()
-{
-	return m_display.get_IsOpen();
 }

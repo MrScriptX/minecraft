@@ -1,19 +1,28 @@
-#pragma once
+#ifndef GAME_STATE_H_INCLUDED
+#define GAME_STATE_H_INCLUDED
 
-class Render_Master;
 class Application;
-class Camera;
+struct Entity;
 
-class Game_State
+namespace Renderer
 {
-public:
-	Game_State(Application* app);
+    class Master;
+}
 
-	virtual void input(Camera& camera) = 0;
-	virtual void update(Camera& camera, float deltaTime) = 0;
-	virtual void draw(Render_Master& renderer) = 0;
+namespace State
+{
+    class Game_State
+    {
+        public:
+            Game_State(Application& application);
 
-protected:
-	Application* m_app;
-};
+            virtual void input  (Entity& camera) = 0;
+            virtual void update (Entity& camera) = 0;
+            virtual void draw   (Renderer::Master& renderer) = 0;
 
+        protected:
+            Application* m_application;
+    };
+}
+
+#endif // GAME_STATE_H_INCLUDED

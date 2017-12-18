@@ -1,13 +1,12 @@
-#pragma once
+#ifndef SHADER_LOADER_H_INCLUDED
+#define SHADER_LOADER_H_INCLUDED
 
+#include <GL/glew.h>
 #include <string>
-#include <fstream>
-#include <sstream>
-#include <exception>
-#include <GL\glew.h>
 
+namespace Shader
+{
+    GLuint loadShader (const std::string& vertexShaderFile, const std::string& fragmentShaderFile);
+}
 
-GLuint loadShader(const std::string& vertexShaderFile, const std::string& fragmentShaderFile);
-std::string get_SourceFile(const std::string& sourceFile);
-GLuint compileShader(const GLchar* source, GLenum type);
-GLuint createProgram(GLuint vertexID, GLuint fragmentID);
+#endif // SHADER_LOADER_H_INCLUDED

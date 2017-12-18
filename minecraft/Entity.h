@@ -1,9 +1,12 @@
-#pragma once
+#ifndef ENTITY_H_INCLUDED
+#define ENTITY_H_INCLUDED
 
 #include "Glm_Common.h"
 
 struct Entity
 {
-	vector3 position;
-	vector3 rotation;
+    Vector3 position;
+    Vector3 rotation;
 };
+
+#endif // ENTITY_H_INCLUDED

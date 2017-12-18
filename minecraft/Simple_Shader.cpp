@@ -2,45 +2,48 @@
 
 #include "Matrix.h"
 
-Simple_Shader::Simple_Shader(): Shader_Program("Simple_Vertex", "Simple_Fragment")
+namespace Shader
 {
-	get_UniformLocations();
+    Simple_Shader::Simple_Shader()
+    :   Shader_Program ("Simple_Vertex", "Simple_Fragment")
+    {
+        getUniformLocations();
 
-	bind();
-	loadMatrix4(m_locationProjectionMatrix, createProjectionMatrix());
-	unbind();
-}
+        bind();
+        loadMatrix4(m_locationProjMatrix, Maths::createProjMatrix());
+        unbind();
+
+    }
+
+    void Simple_Shader::setTime(float time)
+    {
+        loadFloat(m_locationTime, time);
+    }
+
+    void Simple_Shader::setViewMatrix(const Matrix4& matrix)
+    {
+        loadMatrix4(m_locationViewMatrix, matrix);
+    }
+
+    void Simple_Shader::setModelMatrix(const Matrix4& matrix)
+    {
+        loadMatrix4(m_locationModelMatrix, matrix);
+    }
+
+    void Simple_Shader::setProjMatrix(const Matrix4& matrix)
+    {
+        loadMatrix4(m_locationProjMatrix, matrix);
+    }
 
 
-Simple_Shader::~Simple_Shader()
-{
-}
+    void Simple_Shader::getUniformLocations()
+    {
+        m_locationTime      = glGetUniformLocation(getID(), "time");
 
-void Simple_Shader::setTime(float time)
-{
-	loadFloat(m_locationTime, time);
-}
+        m_locationViewMatrix    = glGetUniformLocation(getID(), "viewMatrix");
+        m_locationModelMatrix   = glGetUniformLocation(getID(), "modelMatrix");
+        m_locationProjMatrix    = glGetUniformLocation(getID(), "projMatrix");
 
-void Simple_Shader::setViewMatrix(const matrix4 & matrix)
-{
-	loadMatrix4(m_locationViewMatrix, matrix);
-}
+    }
 
-void Simple_Shader::setModelMatrix(const matrix4 & matrix)
-{
-	loadMatrix4(m_locationModelMatrix, matrix);
-}
-
-void Simple_Shader::setProjMatrix(const matrix4 & matrix)
-{
-	loadMatrix4(m_locationProjectionMatrix, matrix);
-}
-
-void Simple_Shader::get_UniformLocations()
-{
-	m_locationTime = glGetUniformLocation(get_ID(), "time");
-
-	m_locationViewMatrix = glGetUniformLocation(get_ID(), "viewMatrix");
-	m_locationModelMatrix = glGetUniformLocation(get_ID(), "modelMatrix");
-	m_locationProjectionMatrix = glGetUniformLocation(get_ID(), "projectionMatrix");
 }

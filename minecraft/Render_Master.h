@@ -1,28 +1,25 @@
-#pragma once
-
+#ifndef MASTER_H_INCLUDED
+#define MASTER_H_INCLUDED
 
 #include "Render_Simple.h"
-#include "Quad.h"
-#include "OpenGL_Context.h"
-#include "Camera.h"
 
-class Render_Master
+class Quad;
+struct Entity;
+
+namespace Renderer
 {
-public:
-	Render_Master();
-	~Render_Master();
+    class Master
+    {
+        public:
+            void clear();
 
-	void clear();
-	void update(const Camera& camera);
-	void draw(const Quad& model);
-	bool isOpen();
+            void update(const Entity& camera);
 
-protected:
+            void draw(const Quad& model);
 
+        private:
+            Simple m_simpleRenderer;
+    };
+}
 
-private:
-	Render_Simple m_SimpleRenderer;
-	OpenGL_Context m_display;
-
-};
-
+#endif // MASTER_H_INCLUDED

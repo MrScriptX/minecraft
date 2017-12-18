@@ -1,26 +1,31 @@
-#pragma once
-
+#ifndef APPLICATION_H_INCLUDED
+#define APPLICATION_H_INCLUDED
 
 #include <stack>
-#include "Game_States.h"
-#include "Playing_State.h"
-#include "Render_Master.h"
-#include "Camera.h"
+#include <memory>
 
+#include "Game_States.h"
+
+#include "Render_Master.h"
+
+#include "Entity.h"
 
 class Application
 {
-public:
-	Application();
+    public:
+        Application();
 
-	void gameLoop();
-	void pushGameState(std::unique_ptr<Game_State> state);
-	void popGameState();
+        void runMainGameLoop();
 
-private:
-	std::stack<std::unique_ptr<Game_State>> m_states;
-	Render_Master m_renderer;
-	Camera m_camera;
+        void pushState(std::unique_ptr<State::Game_State> state);
+        void popState();
 
+    private:
+        std::stack<std::unique_ptr<State::Game_State>> m_states;
+
+        Renderer::Master m_renderer;
+
+        Entity camera;
 };
 
+#endif // APPLICATION_H_INCLUDED

@@ -1,27 +1,36 @@
-#pragma once
+#ifndef PLAYING_H_INCLUDED
+#define PLAYING_H_INCLUDED
 
-
-#include "Render_Master.h"
 #include "Game_States.h"
+
+#include "Model.h"
 #include "Simple_Shader.h"
 #include "Basic_Texture.h"
+
 #include "Quad.h"
-#include "Camera.h"
 
+class Application;
 
-class Playing_State : public Game_State
+namespace State
 {
-public:
-	Playing_State(Application* app);
-	~Playing_State();
+    class Playing : public Game_State
+    {
+        public:
+            Playing(Application& application);
 
-	void input(Camera& camera) override;
-	void update(Camera& camera, float deltaTime) override;
-	void draw(Render_Master& renderer) override;
+            void input  (Entity& camera) override;
+            void update (Entity& camera) override;
+            void draw   (Renderer::Master& renderer) override;
 
-private:
-	Simple_Shader m_shader;
-	Basic_Texture m_texture;
-	Quad m_quad;
-};
+        private:
+            Shader::Simple_Shader m_shader;
+            Texture::Basic_Texture m_texture;
 
+            //Quad m_quad;
+
+            std::vector<Quad*> m_quads;
+    };
+}
+
+
+#endif // PLAYING_H_INCLUDED

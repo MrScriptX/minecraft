@@ -1,17 +1,18 @@
-#pragma once
+#ifndef QUAD_H_INCLUDED
+#define QUAD_H_INCLUDED
 
 #include "Entity.h"
 #include "Model.h"
 
-
 class Quad : public Entity
 {
-public:
-	Quad();
+    public:
+        Quad();
 
-	const Model& get_Model() const;
+        const Model& getModel() const;
 
-private:
-	Model m_model;
-
+    private:
+        Model m_model;
 };
+
+#endif // QUAD_H_INCLUDED

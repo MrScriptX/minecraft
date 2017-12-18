@@ -1,13 +1,16 @@
-#pragma once
+#ifndef GLM_COMMON_H_INCLUDED
+#define GLM_COMMON_H_INCLUDED
 
+//GLM header includes and typedefs
 #include <glm.hpp>
-#include <gtc\matrix_transform.hpp>
-#include <gtc\type_ptr.hpp>
+#include <gtc/matrix_transform.hpp>
+#include <gtc/type_ptr.hpp>
 
-typedef glm::mat2 matrix2;
-typedef glm::mat3 matrix3;
-typedef glm::mat4 matrix4;
 
-typedef glm::vec2 vector2;
-typedef glm::vec3 vector3;
-typedef glm::vec4 vector4;
+typedef glm::vec2 Vector2;
+typedef glm::vec3 Vector3;
+typedef glm::vec4 Vector4;
+
+typedef glm::mat4 Matrix4;
+
+#endif // GLM_COMMON_H_INCLUDED

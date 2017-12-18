@@ -1,10 +1,14 @@
-#include "Application.h"
+#include "OpenGL_Context.h"
 
+#include "Application.h"
 
 int main()
 {
-	Application app;
-	app.gameLoop();
+    Display::init();
 
-	return 0;
+    Application app;
+
+    app.runMainGameLoop();
+
+    return 0;
 }

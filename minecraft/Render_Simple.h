@@ -1,27 +1,32 @@
-#pragma once
+#ifndef SIMPLE_H_INCLUDED
+#define SIMPLE_H_INCLUDED
 
 #include <vector>
-#include <SFML\System\Clock.hpp>
-#include "Quad.h"
+#include <SFML/System/Clock.hpp>
+
 #include "Simple_Shader.h"
-#include "Camera.h"
 
+class Quad;
+struct Entity;
 
-class Render_Simple
+namespace Renderer
 {
-public:
-	Render_Simple();
-	~Render_Simple();
+    class Simple
+    {
+        public:
+            void draw (const Quad& quad);
 
-	void draw(const Quad & quad);
-	void update(const Camera & camera);
+            void update(const Entity& camera);
 
-private:
-	void prepare(const Quad& quad);
+        private:
+            void prepare(const Quad& quad);
 
-	std::vector<const Quad*> m_quads;
-	Simple_Shader m_shader;
-	sf::Clock m_clock;
+        private:
+            std::vector<const Quad*> m_quads;
 
-};
+            Shader::Simple_Shader m_shader;
+            sf::Clock m_clock;
+    };
+}
 
+#endif // SIMPLE_H_INCLUDED

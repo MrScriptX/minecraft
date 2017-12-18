@@ -13,7 +13,7 @@ Camera::~Camera()
 
 void Camera::input(float deltaTime)
 {
-	vector3 change = { 0, 0, 0 };
+	Vector3 change = { 0, 0, 0 };
 	float speed = 2.0f;
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))

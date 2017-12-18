@@ -1,49 +1,71 @@
 #include "OpenGL_Context.h"
 
+#include <memory>
+#include <SFML/Graphics.hpp>
+#include <GL/glew.h>
 
-
-OpenGL_Context::OpenGL_Context() : m_window()
+namespace Display
 {
-	m_settings.depthBits         = 24;
-	m_settings.majorVersion      = 4;
-	m_settings.minorVersion      = 6;
+    std::unique_ptr<sf::RenderWindow> window;
 
-	m_window.window = std::make_unique<sf::RenderWindow>(sf::VideoMode(m_window.width, m_window.height), "Cube Quest", sf::Style::Close, m_settings);
+    void init()
+    {
+        sf::ContextSettings settings;
+        settings.depthBits = 24;
+        settings.majorVersion = 4;
+        settings.minorVersion = 6; //OpenGL 3.3
 
-	glewInit();
-	glViewport(0, 0, m_window.width, m_window.height);
+        window = std::make_unique<sf::RenderWindow>(sf::VideoMode(WIDTH, HEIGHT),
+                                                    "Window",
+                                                    sf::Style::Close,
+                                                    settings);
+
+        glewInit();
+        glViewport(0, 0, WIDTH, HEIGHT);
+    }
+
+    void close()
+    {
+        window->close();
+    }
+
+    void clear()
+    {
+        glClearColor(0.0, 0.0, 0.0, 1.0);
+        glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+    }
+
+    void update()
+    {
+        window->display();
+    }
+
+    void checkForClose()
+    {
+        sf::Event e;
+        while (window->pollEvent(e))
+        {
+            if (e.type == sf::Event::Closed)
+            {
+                close();
+            }
+        }
+    }
+
+    bool isOpen()
+    {
+        return window->isOpen();
+    }
 }
 
 
-OpenGL_Context::~OpenGL_Context()
-{
 
-}
 
-void OpenGL_Context::close()
-{
-	sf::Event event;
-	while (m_window.window->pollEvent(event))
-	{
-		if (event.type == sf::Event::Closed)
-		{
-			m_window.window->close();
-		}
-	}
-}
 
-void OpenGL_Context::clear()
-{
-	glClearColor(0.0, 0.0, 0.0, 1.0);
-	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-}
 
-bool OpenGL_Context::get_IsOpen()
-{
-	return m_window.window->isOpen();
-}
 
-void OpenGL_Context::display()
-{
-	m_window.window->display();
-}
+
+
+
+
+

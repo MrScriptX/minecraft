@@ -1,32 +1,52 @@
 #include "Playing_State.h"
 
-#include <SFML\System\Clock.hpp>
+#include <iostream>
+#include <SFML/System/Clock.hpp>
 
+#include "Render_Master.h"
 
-
-Playing_State::Playing_State(Application* app): Game_State(app)
+namespace State
 {
-	m_texture.load("grass");
-	m_texture.bind();
+    sf::Clock clock;
 
-	m_quad.position.z = -8;
-}
+    Playing::Playing(Application& application)
+    :   Game_State  (application)
+    {
+        m_texture.load("grass");
+        m_texture.bind();
 
+        auto testSize = 50;
 
-Playing_State::~Playing_State()
-{
-}
+        for (int x = -testSize ; x < testSize ; x++)
+        {
+            for (int z = testSize ; z > -testSize ; z--)
+            {
+                Quad* quad = new Quad();
+                quad->rotation.x = 90;
+                quad->position = {x, -1, z};
+                m_quads.push_back(quad);
+            }
+        }
+        std::cout << m_quads.size() << std::endl;
+    }
 
-void Playing_State::input(Camera& camera)
-{
-}
+    void Playing::input(Entity& camera)
+    {
 
-void Playing_State::update(Camera& camera, float deltaTime)
-{
-	camera.input(deltaTime);
-}
+    }
 
-void Playing_State::draw(Render_Master& renderer)
-{
-	renderer.draw(m_quad);
+    void Playing::update(Entity& camera)
+    {
+        for (auto& quad : m_quads)
+        {
+            quad->position.y = sin(clock.getElapsedTime().asSeconds());
+        }
+
+    }
+
+    void Playing::draw(Renderer::Master& renderer)
+    {
+        for (auto& quad : m_quads)
+            renderer.draw(*quad);
+    }
 }

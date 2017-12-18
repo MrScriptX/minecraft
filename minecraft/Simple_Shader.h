@@ -1,25 +1,29 @@
-#pragma once
-
+#ifndef SIMPLE_SHADER_H_INCLUDED
+#define SIMPLE_SHADER_H_INCLUDED
 
 #include "Shader_Program.h"
 
-class Simple_Shader: public Shader_Program
+namespace Shader
 {
-public:
-	Simple_Shader();
-	~Simple_Shader();
+    class Simple_Shader : public Shader_Program
+    {
+        public:
+            Simple_Shader();
 
-	void setTime(float time);
-	void setViewMatrix(const matrix4& matrix);
-	void setModelMatrix(const matrix4& matrix);
-	void setProjMatrix(const matrix4& matrix);
+            void setTime(float time);
 
-private:
-	void get_UniformLocations() override;
+            void setViewMatrix  (const Matrix4& matrix);
+            void setModelMatrix (const Matrix4& matrix);
+            void setProjMatrix  (const Matrix4& matrix);
 
-	GLuint m_locationTime = 0;
-	GLuint m_locationViewMatrix = 0;
-	GLuint m_locationModelMatrix = 0;
-	GLuint m_locationProjectionMatrix = 0;
-};
+        private:
+            void getUniformLocations() override;
 
+            GLuint m_locationTime           = 0;
+            GLuint m_locationViewMatrix     = 0;
+            GLuint m_locationModelMatrix    = 0;
+            GLuint m_locationProjMatrix     = 0;
+    };
+}
+
+#endif // SIMPLE_SHADER_H_INCLUDED

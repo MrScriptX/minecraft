@@ -1,21 +1,22 @@
-#pragma once
+#ifndef TEXTURE_H_INCLUDED
+#define TEXTURE_H_INCLUDED
 
-
-#include <GL\glew.h>
+#include <GL/glew.h>
 #include <string>
 
-class Basic_Texture
+namespace Texture
 {
-public:
-	Basic_Texture();
-	~Basic_Texture();
+    class Basic_Texture
+    {
+        public:
+            void load(const std::string& fileName);
 
-	void load(const std::string fileName);
+            void bind();
+            void unbind();
 
-	void bind();
-	void unbind();
+        private:
+            GLuint m_textureID;
+    };
+}
 
-private:
-	GLuint m_textureID;
-};
-
+#endif // TEXTURE_H_INCLUDED
